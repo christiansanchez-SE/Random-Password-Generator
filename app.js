@@ -1,52 +1,62 @@
-// Selects the input element where the generated password will be displayed
+// Get the input box where the generated password will be displayed
 const passwordBox = document.getElementById("password");
 
-// Defines the desired length of the generated password
-const length = 12;
+// Get the confirmation message element that will show when the password is copied
+const copyConfirmation = document.getElementById("copy-confirmation");
 
-// These are the character sets used for generating the password
-const upperCase = "ABCDDEFGHIJKLMNOPQRSTUVWXYZ";
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-const number = "0123456789";
-const symbol = "@#$%^&*()_+~|}{[]></-=";
 
-// Combines all character sets into one large string
-const allChars = upperCase + lowerCase + number + symbol;
+/*
+ * Function to generate a random password
+ * This function creates a password with a combination of uppercase letters, 
+ * lowercase letters, numbers, and special symbols.
+ */
+function createPassword() {
+    // Character sets for password generation
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    const number = "0123456789";
+    const symbol = "@#$%^&*()_+~|}{[]></-=";
 
-// This function generates a random password
-function createPassword(){
+    // Combine all character sets into one string
+    const allChars = upperCase + lowerCase + number + symbol;
+
+    // Initialize an empty string for the password
     let password = "";
 
-    // Guarantees that the password contains at least one character from each set
-    password += upperCase[Math.floor(Math.random() * upperCase.length)];
-    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-    password += number[Math.floor(Math.random() * number.length)];
-    password += symbol[Math.floor(Math.random() * symbol.length)];
-
-    // Fills the remaining length of the password with random characters from the combined set
-    while(length > password.length){
+    // Generate a 12-character password by randomly selecting characters from allChars
+    for (let i = 0; i < 12; i++) {
         password += allChars[Math.floor(Math.random() * allChars.length)];
     }
 
-    // Sets the generated password into the input field
+    // Display the generated password in the input box
     passwordBox.value = password;
 }
 
-// This function copies the generated password to the clipboard
+/*
+ * Function to copy the generated password to the clipboard
+ * This function also shows a confirmation message when the password is copied successfully.
+ */
 function copyPassword() {
-    // Gets the current value of the password field
+    // Get the current password from the input box
     const password = passwordBox.value;
+
+    // Check if there is a password to copy
     if (password) {
-        // Uses the Clipboard API to copy the password to the user's clipboard
+        // Use the Clipboard API to copy the password to the clipboard
         navigator.clipboard.writeText(password).then(() => {
-            // Shows a confirmation message once the password is copied
-            alert("Password copied to clipboard!");
+            // Show the confirmation message when the password is successfully copied
+            copyConfirmation.style.display = 'block';
+
+            // Hide the confirmation message after 2 seconds (2000 milliseconds)
+            setTimeout(() => {
+                copyConfirmation.style.display = 'none';
+            }, 2000);
         }).catch(err => {
-            // If copying fails, displays an error message
+            // Alert the user if there is an error in copying the password
             alert("Failed to copy password: " + err);
         });
     } else {
-        // If no password is present in the field, alerts the user
+        // Alert the user if there is no password to copy
         alert("No password to copy!");
     }
 }

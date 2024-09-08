@@ -1,72 +1,113 @@
-*{
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+}
+
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
-body{
-    background-color: #002339;
+body {
+    background-color: #1d3557;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.container{
-   margin: 12%;
-   width: 90%;
-   max-width: 700px; 
-}
-
-.display{
+.container {
+    text-align: center;
+    background-color: #457b9d;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    background-color: #fff;
-    color: #333;
+    max-width: 400px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: #f1faee;
+    border-bottom: 4px solid #f1faee;
+}
+
+.display {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 26px 20px;
-    border-radius: 5px;
+    background-color: #fff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
-.container h1{
-    font-weight: 500px;
-    font-size: 45px;
+.display input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    flex: 1;
+    background-color: transparent;
+    color: #333;
 }
 
-.container h1 span{
-    color: #019f55;
-    border-bottom: 4px solid #019f55;
-    padding-bottom: 7px;
-}
-
-.display i{
-    width: 30px;
+.display i {
     cursor: pointer;
+    color: #457b9d;
+    transition: color 0.3s ease;
 }
 
-.display input{
-    border: 0;
-    outline: 0;
-    font-size: 24px;
+.display i:hover {
+    color: #1d3557;
 }
 
-.container button i{
-    width: 28px;
+button {
+    border: none;
+    outline: none;
+    background-color: #e63946;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button i {
     margin-right: 10px;
 }
 
-.container button{
-    border: 0;
-    outline: 0;
-    background: #019f55;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 300;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 26px;
-    border-radius: 5px;
-    cursor: pointer;
+button:hover {
+    background-color: #d62828;
+}
+
+button:active {
+    background-color: #b51717;
+}
+
+#copy-confirmation {
+    display: none;
+    color: #f1faee;
+    font-size: 14px;
+    margin-top: 10px;
 }
