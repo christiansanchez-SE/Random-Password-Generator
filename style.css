@@ -22,7 +22,7 @@
 }
 
 body {
-    background-color: #1d3557;
+    background-color: #162842;
     color: white;
     display: flex;
     justify-content: center;
@@ -48,8 +48,8 @@ h1 {
 }
 
 h1 span {
-    color: #f1faee;
-    border-bottom: 4px solid #f1faee;
+    color: #019f55;
+    border-bottom: 4px solid #019f55;
 }
 
 .display {
@@ -109,5 +109,6 @@ button:active {
     display: none;
     color: #f1faee;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 2px;
+    padding: 10px;
 }
